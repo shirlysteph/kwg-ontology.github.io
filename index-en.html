@@ -76,11 +76,11 @@ $(function(){
 <dd>The KnowWhereGraph Project</dd>
 
 <dt>Contributors:</dt>
-<dd>Shirly Stephen,
-Rui Zhu,
+<dd>Rui Zhu,
 Cogan Shimizu,
-Ling Cai,
+Shirly Stephen,
 Lu Zhou,
+Ling Cai,
 Joseph Zalewski,
 Meilin Shi,
 Yuanyuan Tian,
@@ -2789,88 +2789,190 @@ This ontology has the following classes and properties.</span>
 <span class="markdown">
 This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
 
-
-<a href="KWG_V4_Overview.png" target="_blank">This is entire integrated schema diagram for the KnowWhereGraph project. Click to open the diagram in another tab.</a>
+<h2>List of Datasets</h2>
 
 <table>
   <tr>
+	<th>Theme</th>
     <th>Dataset Name</th>
     <th>Source</th>
     <th>Last Updated</th>
   </tr>
   <tr>
+	<td>Place</td>
     <td>Administrative Regions</td>
-    <td>GADM</td>
-    <td>---</td>
+    <td><a href="https://gadm.org/data.html">GADM</a></td>
+    <td>02/03/2022</td>
   </tr>
   <tr>
-    <td>Air Quality</td>
-    <td>EPA</td>
-    <td>---</td>
-  </tr>
-  <tr>
+	<td>Environmental</td>
     <td>Bluesky Daily Runs</td>
-    <td>AirFire</td>
-    <td>--</td>
+    <td><a href="https://tools.airfire.org/websky/v1/#status">AirFire</a></td>
+    <td>02/03/2022</td>
+  </tr>
+   <tr>
+	<td>Place</td>
+	<td>Census Metropolitain Areas (boundary + census)</td>
+    <td><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-data.2019.html">US Census Bureau</a></td>
+    <td>02/03/2022</td>
   </tr>
   <tr>
-    <td>Census ACS 5-yr Estimates</td>
-    <td>US Census Bureau</td>
-    <td>---</td>
+	<td>Place</td>
+	<td>Climate Division Boundary</td>
+    <td><a href="https://psl.noaa.gov/data/usclimdivs/boundaries.html">NOAA/NCEI</a></td>
+    <td>02/03/2022</td>
+  </tr>
+   <tr>
+	<td>Environmental</td>
+	<td>Climate Division Observations</td>
+    <td><a href="https://www.ncdc.noaa.gov/cag/divisional/mapping">NOAA/NCEI</a></td>
+    <td>02/03/2022</td>
   </tr>
   <tr>
-    <td>Disaster Declaration</td>
-    <td>OpenFEMA</td>
-    <td>---</td>
-  </tr>
-  <tr>
-    <td>Designated Market Areas</td>
-    <td>Nielsen</td>
-    <td>---</td>
-  </tr>
-  <tr>
-    <td>Earthquake</td>
-    <td>USGS</td>
-    <td>---</td>
-  </tr>
-  <tr>
-    <td>Historical Fires</td>
-    <td>MTBS</td>
-    <td>---</td>
 	<tr>
-    <td>Storm</td>
-    <td>NOAA</td>
-    <td>---</td>
+	<td>Environmental</td>
+	<td>Cropland Cropscape</td>
+    <td><a href="https://nassgeodata.gmu.edu/CropScape/">USDA</a></td>
+    <td>02/03/2022</td>
   </tr>
   <tr>
-    <td>Soil Types</td>
-    <td>SSURGO USDA</td>
-    <td>---</td>
-  </tr>
-  <tr>
-    <td>US Climate Division Boundaries and Observations</td>
-    <td>NOAA</td>
-    <td>---</td>
-  </tr>
-  <tr>
-    <td>US Federal Judicial District</td>
-    <td>HIFLD</td>
-    <td>---</td>
+	<td>Hazard</td>
+	<td>Disaster Declaration</td>
+    <td><a href="https://www.fema.gov/about/openfema/data-sets">Open FEMA</a></td>
+    <td>02/03/2022</td>
   </tr>
    <tr>
-    <td>US Zipcodes</td>
-    <td>GADM</td>
-    <td>---</td>
+	<td>Hazard</td>
+	<td>Drought</td>
+    <td><a href="https://droughtmonitor.unl.edu/DmData/GISData.aspx">NDMC</a></td>
+    <td>02/03/2022</td>
+  </tr>
+    <tr>
+	<td>Hazard</td>
+	<td>Earthquake</td>
+    <td><a href="https://earthquake.usgs.gov/earthquakes/search/">USGS</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Environmental</td>
+	<td>Air Quality</td>
+    <td><a href="https://www.epa.gov/outdoor-air-quality-data/download-daily-data">EPA Air Now</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Expert</td>
+	<td>---</td>
+    <td><a href="https://droughtmonitor.unl.edu/DmData/GISData.aspx">---</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Place/Feature</td>
+	<td>GNIS-LD</td>
+    <td><a href="https://gnis-ld.org/">USGS</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Hazard</td>
+	<td>Storm</td>
+    <td><a href="https://www.ncdc.noaa.gov/stormevents/ftp.jsp">NOAA NCDC</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Place</td>
+	<td>National Weather Zone</td>
+    <td><a href="https://www.weather.gov/gis/PublicZones">NOAA NWS</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Place</td>
+	<td>Distributed Market Areas</td>
+    <td><a href="https://global.nielsen.com/">Nielsen</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Hazard</td>
+	<td>Smoke Plume Snapshots</td>
+    <td><a href="https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/">NOAA</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Public Health</td>
+	<td>Hospital and Trauma Categorization</td>
+    <td><a href="https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals-2/about">HIFLD</a></td>
+    <td>02/03/2022</td>
   </tr>
    <tr>
-    <td>Wildfires</td>
-    <td>NIFC</td>
-    <td>---</td>
+	<td>Public Health</td>
+	<td>Obesity, Diabetes</td>
+    <td><a href="https://droughtmonitor.unl.edu/DmData/GISData.aspx">CDC</a></td>
+    <td>02/03/2022</td>
+  </tr>
+    <tr>
+	<td>Public Health</td>
+	<td>Poverty</td>
+    <td><a href="https://data.census.gov/cedsci/table?q=United%20States&t=Poverty&g=0100000US,%240500000&y=2017&tid=ACSST1Y2017.S1701">US Census Bureau</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Public Health</td>
+	<td>Social Vulnerability</td>
+    <td><a href="https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html">CDC</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Place</td>
+	<td>S2 Cells</td>
+    <td><a href="https://s2geometry.io/">Google</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Hazard</td>
+	<td>Storm Trajectory</td>
+    <td><a href="https://coast.noaa.gov/hurricanes">NOAA</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Network Feature</td>
+	<td>Transportation</td>
+    <td><a href="https://data-usdot.opendata.arcgis.com/datasets/usdot::national-highway-planning-network/about">US DOT</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Place</td>
+	<td>US Federal Judicial District</td>
+    <td><a href="https://hifld-geoplatform.opendata.arcgis.com/datasets/us-district-court-jurisdictions/explore">US DOJ</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Hazard</td>
+	<td>Wildfire</td>
+    <td><a href="https://mtbs.gov/direct-download">MTBS</a></td>
+    <td>02/03/2022</td>
+  </tr>
+   <tr>
+	<td>Hazard</td>
+	<td>Wildfire</td>
+    <td><a href="https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-wildland-fire-locations-full-history/about">NIFC</a></td>
+    <td>02/03/2022</td>
+  </tr>
+  <tr>
+	<td>Place</td>
+	<td>ZIP Code</td>
+    <td><a href="https://www.arcgis.com/home/item.html?id=8d2012a2016e484dafaac0451f9aea24">GADM, OpenStreetMap</a></td>
+    <td>02/03/2022</td>
   </tr>
 </table>
+
+<b>Integrated Schema Diagram:</b> <a href="KWG_V4_Overview.png" target="_blank">Classes and properties used in the KnowWhereGraph project. Click to open the schema diagram in another tab.</a>
+
+<figure>
+    <img src='figures/spatial_model_kwg.png' alt='missing' width="750" height="750" class="center" />
+    <figcaption align="center"><b>Figure 1. - Spatial and Temporal Modeling in KnowWhereGraph</b></figcaption>
+</figure>
+
 <figure>
     <img src='figures/KWG_V4_Overview_Hazards.png' alt='missing' width="1100" height="1100" class="center" />
-    <figcaption>Figure 1 - Hazard Datasets in KnowWhereGraph</figcaption>
+    <figcaption align="center"><b>Figure 2. - Hazard Datasets in KnowWhereGraph</b></figcaption>
 </figure>
 <!-- <figure>
 <figure>
@@ -2883,10 +2985,7 @@ This is a placeholder text for the description of your ontology. The description
     <figcaption>Figure 3 - Integrated Schema Diagram of all Place Datasets in KnowWhereGraph</figcaption>
 </figure> -->
 
-<figure>
-    <img src='figures/spatial_model_kwg.png' alt='missing' width="750" height="750" class="center" />
-    <figcaption>Figure 4 - Spatial and Temporal Modeling in KnowWhereGraph</figcaption>
-</figure>
+
 
 </div>
    
