@@ -76,7 +76,13 @@ $(function(){
 <dd>The KnowWhereGraph Project</dd>
 
 <dt>Contributors:</dt>
-<dd>Rui Zhu,
+<dd>
+Krysztof Janowicz,
+Pascal Hitzler,
+Mark Schildhauer,
+Wenwen Li,
+Dean Rehnberger,
+Rui Zhu,
 Cogan Shimizu,
 Shirly Stephen,
 Lu Zhou,
@@ -85,7 +91,17 @@ Joseph Zalewski,
 Meilin Shi,
 Yuanyuan Tian,
 Sizhe Wang,
-Zhangyu Wang</dd>
+Zhangyu Wang,
+Gengchen Mai,
+Colby Fisher,
+Zilong Liu,
+Seila Gonzales,
+David Smith,
+Bryce Mecum,
+Anna Lopez-Carr,
+Andrew Schroeder,
+Thomas Thelen,
+Anthony D'Onofrio</dd>
 
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.rdf" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License: </dt><dd><a href="http://insertlicenseURIhere.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.org" /></a>
 </dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
@@ -138,9 +154,307 @@ This is a place holder text for the introduction. The introduction should briefl
   
 
 <!--OVERVIEW SECTION-->
-    <div id="overview"><h2 id="overv" class="list">KWG Integrated Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <div id="overview"><h2 id="overv" class="list">The KnowWhereGraph Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+	The KnowWhereGraph contains a wide range of integrated datasets from two key thematic domains: <em>environmental</em> (general and hazard-related) 
+	and <em>place identifier</em>. In order to cater to the needs of our partners at <a href="https://www.directrelief.org/">Direct Relief</a>
+	on their expert system and with our partners from the <a href="https://www.fmi.org/ ">Food Industry Association</a> on supply chain issues as they 
+	relate to food and the health of laborers in the agricultural sector, there are certain other relevant datasets included such as hospitals, public 
+	health (obesity and diabetes), poverty, social vulnerability. Listed below in Table 2 are all the datasets that are made available in KnowWhereGraph.
+	
+
+<table  class="center" id="table-design">
+  <tr>
+	<th>Theme</th>
+    <th>Dataset Name</th>
+    <th>Source</th>
+    <!-- <th>Last Updated</th> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+    <td>Administrative Regions</td>
+    <td><a href="https://gadm.org/data.html">GADM</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Environmental (hazard-related)</td>
+    <td>Bluesky Daily Runs</td>
+    <td><a href="https://tools.airfire.org/websky/v1/#status">AirFire</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+   <tr>
+	<td>Place Identifier</td>
+	<td>Census Metropolitain Areas (boundary + census)</td>
+    <td><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-data.2019.html">US Census Bureau</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+	<td>Climate Division Boundary</td>
+    <td><a href="https://psl.noaa.gov/data/usclimdivs/boundaries.html">NOAA/NCEI</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+   <tr>
+	<td>Environmental (general)</td>
+	<td>Climate Division Observations</td>
+    <td><a href="https://www.ncdc.noaa.gov/cag/divisional/mapping">NOAA/NCEI</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<tr>
+	<td>Environmental (general)</td>
+	<td>Cropland Cropscape</td>
+    <td><a href="https://nassgeodata.gmu.edu/CropScape/">USDA</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Hazard</td>
+	<td>Disaster Declaration</td>
+    <td><a href="https://www.fema.gov/about/openfema/data-sets">Open FEMA</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+   <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Drought</td>
+    <td><a href="https://droughtmonitor.unl.edu/DmData/GISData.aspx">NDMC</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+    <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Earthquake</td>
+    <td><a href="https://earthquake.usgs.gov/earthquakes/search/">USGS</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Environmental (general)</td>
+	<td>Air Quality</td>
+    <td><a href="https://www.epa.gov/outdoor-air-quality-data/download-daily-data">EPA Air Now</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Expert</td>
+	<td>---</td>
+    <td><a href="https://droughtmonitor.unl.edu/DmData/GISData.aspx">---</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier/Feature</td>
+	<td>GNIS-LD</td>
+    <td><a href="https://gnis-ld.org/">USGS</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Storm Impacts</td>
+    <td><a href="https://www.ncdc.noaa.gov/stormevents/ftp.jsp">NOAA NCDC</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+	<td>National Weather Zone</td>
+    <td><a href="https://www.weather.gov/gis/PublicZones">NOAA NWS</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+	<td>Distributed Market Areas</td>
+    <td><a href="https://global.nielsen.com/">Nielsen</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Smoke Plume Snapshots</td>
+    <td><a href="https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/">NOAA</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Public Health</td>
+	<td>Hospital and Trauma Categorization</td>
+    <td><a href="https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals-2/about">HIFLD</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+   <tr>
+	<td>Public Health</td>
+	<td>Obesity, Diabetes</td>
+    <td><a href="https://droughtmonitor.unl.edu/DmData/GISData.aspx">CDC</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+    <tr>
+	<td>Public Health</td>
+	<td>Poverty</td>
+    <td><a href="https://data.census.gov/cedsci/table?q=United%20States&t=Poverty&g=0100000US,%240500000&y=2017&tid=ACSST1Y2017.S1701">US Census Bureau</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Public Health</td>
+	<td>Social Vulnerability</td>
+    <td><a href="https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html">CDC</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+	<td>S2 Cells</td>
+    <td><a href="https://s2geometry.io/">Google</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Storm Trajectory</td>
+    <td><a href="https://coast.noaa.gov/hurricanes">NOAA</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Network Feature</td>
+	<td>Transportation</td>
+    <td><a href="https://data-usdot.opendata.arcgis.com/datasets/usdot::national-highway-planning-network/about">US DOT</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+	<td>US Federal Judicial District</td>
+    <td><a href="https://hifld-geoplatform.opendata.arcgis.com/datasets/us-district-court-jurisdictions/explore">US DOJ</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Wildfire</td>
+    <td><a href="https://mtbs.gov/direct-download">MTBS</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+   <tr>
+	<td>Environmental (hazard-related)</td>
+	<td>Wildfire</td>
+    <td><a href="https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-wildland-fire-locations-full-history/about">NIFC</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+  <tr>
+	<td>Place Identifier</td>
+	<td>ZIP Code</td>
+    <td><a href="https://www.arcgis.com/home/item.html?id=8d2012a2016e484dafaac0451f9aea24">GADM, OpenStreetMap</a></td>
+    <!-- <td>02/03/2022</td> -->
+  </tr>
+</table>
+
+
+ To semantically lift these datasets to the KnowWhereGraph we build our ontology on top of three standard ontologies, namely Sensor, Observation, Sample, 
+ and Actuator (<a href="https://www.w3.org/TR/vocab-ssn/">SOSA</a>) ontology, <a href="https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html">GeoSPARQL</a>, and 
+ <a href="https://www.w3.org/TR/owl-time/">OWL-Time</a>. The ontology is generated using both, bottom-up and top-down knowledge engineering approaches. 
+ In the bottom-up approach concepts are manually defined in a way that mirrors how instances are in each individual dataset. Therefore the end-result is an 
+ independent ontology for each dataset that represents the structure of the dataset (except in the case of the expert data). In the complementary top-down 
+ approach, 1) higher-level concepts are defined in a way that assimilate implicit characteristics of already defined finer-level classes such as part-whole 
+ and subclass-superclass relations, 2) the KWG spatiotemporal model is infused. This required the use of domain ontologies classes (such as <TT>FeatureOfInterest</TT>, 
+ <TT>ObservationCollection</TT> from SOSA) that were favourable for merging the independent dataset ontologies. The resulting ontology is revised and refined to generate
+ an integrated, enriched ontology that allows the crisp representation of data in the KnowWhereGraph.
+ 
+ <table  class="center" id="table-design">
+  <tr>
+    <th>Dataset in KWG</th>
+	<th><TT>sosa:FeatureOfInterest</TT></th>
+    <th><TT>sosa:ObservationCollection</TT></th>
+    <th><TT>sosa:Observation</TT></th>
+    <th><TT>sosa:ObservableProperty</TT></th>
+  </tr>
+  <tr>
+	<td>EPA Air Quality</td>
+	<td>--</td>
+	<td><a href="#AirQualityObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/AirQualityObservationCollection">AirQualityObservationCollection</a></td>
+    <td><a href="#AirQualityObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/AirQualityObservation">AirQualityObservation</a></td>
+    <td><a href="#AirPollutant" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/AirPollutant">AirPollutant</a></td>
+  </tr>
+  
+  <tr>
+	<td>Bluesky Forecast</td>
+	<td><a href="#BlueskyModeledWildfire" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/BlueskyModeledWildfire">BlueskyModeledWildfire</a></td>
+	<td><a href="#BlueskyWildfireObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/BlueskyWildfireObservationCollection">BlueskyWildfireObservationCollection</a></td>
+    <td><a href="#BlueskyWildfireObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/BlueskyWildfireObservation">BlueskyWildfireObservation</a></td>
+    <td><a href="#BlueskyWildfireObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/BlueskyWildfireObservableProperty">BlueskyWildfireObservableProperty</a></td>
+  </tr>
+  
+  <tr>
+	<td>Census</td>
+	<td><a href="#USCensusMSA" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/USCensusMSA">USCensusMSA</a></td>
+	<td><a href="#CensusACS5YearEstimatesObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/CensusACS5YearEstimatesObservationCollection">CensusACS5YearEstimatesObservationCollection</a></td>
+    <td><a href="#CensusACS5YearEstimatesObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/CensusACS5YearEstimatesObservation">CensusACS5YearEstimatesObservation</a></td>
+    <td><a href="#CensusObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/CensusObservableProperty">CensusObservableProperty</a></td>
+  </tr>
+  
+  <tr>
+	<td>Climate Division Observation</td>
+	<td><a href="#USClimateDivision" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/USCensusMSA">USClimateDivision</a></td>
+	<td><a href="#ClimateDivisionObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/ClimateDivisionObservationCollection">ClimateDivisionObservationCollection</a><br>
+    <a href="#ClimateDivisionPropertyObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/ClimateDivisionPropertyObservationCollection">ClimateDivisionPropertyObservationCollection</a></td>
+	<td><a href="#ClimateObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/ClimateObservation">ClimateObservation</a></td>
+    <td><a href="#ClimateObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/ClimateObservableProperty">ClimateObservableProperty</a></td>
+  </tr>
+  
+  <tr>
+	<td>Cropland</td>
+	<td><a href="#S2Cell" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/USCensusMSA">S2Cell</a></td>
+	<td><a href="#CroplandObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/CroplandObservationCollection">CroplandObservationCollection</a></td>
+    <td><a href="#CroplandObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/CroplandObservation">CroplandObservation</a></td>
+    <td><a href="#CroplandObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/CroplandObservableProperty">CroplandObservableProperty</a></td>
+  </tr>
+  
+  <tr>
+	<td>Drought Zone</td>
+	<td><a href="#S2Cell" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/USCensusMSA">S2Cell</a></td>
+	<td><a href="#DroughtZoneOverlapObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/DroughtZoneOverlapObservationCollection">DroughtZoneOverlapObservationCollection</a></td>
+    <td><a href="#DroughtZoneOverlapObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/DroughtZoneOverlapObservation">DroughtZoneOverlapObservation</a></td>
+    <td><a href="#DroughtIntensity" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/DroughtIntensity">DroughtIntensity</a></td>
+  </tr>
+  
+  <tr>
+	<td>Earthquake</td>
+	<td><a href="#Earthquake" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/Earthquake">Earthquake</a></td>
+	<td><a href="#EarthquakeObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/EarthquakeObservationCollection">EarthquakeObservationCollection</a></td>
+    <td><a href="#EarthquakeObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/EarthquakeObservation">EarthquakeObservation</a></td>
+    <td><a href="#EarthquakeObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/EarthquakeObservableProperty">EarthquakeObservableProperty</a></td>
+  </tr>
+  
+  <tr>
+	<td>MTBS Fire</td>
+	<td><a href="#MTBSFire" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSFire">MTBSFire</a></td>
+	<td><a href="#MTBSFireObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSFireObservationCollection">MTBSFireObservationCollection</a></td>
+    <td><a href="#MTBSFireObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSFireObservation">MTBSFireObservation</a></td>
+    <td><a href="#MTBSFireObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSFireObservableProperty">MTBSFireObservableProperty</a></td>
+  </tr>
+  
+   <tr>
+	<td>Hurricane Tracks</td>
+	<td><a href="#StormTrack" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrack">StormTrack</a><br>
+	<a href="#StormTracklet" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTracklet">StormTracklet</a></td>
+	<td><a href="#StormTrackObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrackObservationCollection">StormTrackObservationCollection</a><br>
+	<a href="#StormTrackletObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrackletObservationCollection">StormTrackletObservationCollection</a></td>
+    <td><a href="#StormTrackObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrackObservation">StormTrackObservation</a><br>
+	<a href="#StormTrackletObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrackletObservation">StormTrackletObservation</a></td>
+    <td><a href="#StormTrackObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrackObservableProperty">StormTrackObservableProperty</a><br>
+	<a href="#StormTrackletObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrackletObservableProperty">StormTrackletObservableProperty</a></td>
+  </tr>
+  
+  <tr>
+	<td>Public Health</td>
+	<td><a href="#AdministrativeRegion_3" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/AdministrativeRegion_3">AdministrativeRegion_3</a></td>
+	<td><a href="#PublicHealthObservationCollection" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/PublicHealthObservationCollection">PublicHealthObservationCollection</a></td>
+    <td><a href="#PublicHealthObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/PublicHealthObservation">PublicHealthObservation</a><<br>
+	<a href="#VulnerabilityIndexObservation" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/VulnerabilityIndexObservation">VulnerabilityIndexObservation</a></td>
+    <td><a href="#PublicHealthObservableProperty" title="http://stko-kwg.geog.ucsb.edu/lod/ontology/PublicHealthObservableProperty">PublicHealthObservableProperty</a></td>
+  </tr>
+ </table>
 <span class="markdown">
-This ontology has the following classes and properties.</span>
+
+This ontology has the following classes and properties.
+
+
+
+</span>
+
+
+<figure>
+    <img src='figures/KWG-SOSA.png' alt='missing' class="center" />
+	 <!-- <img src='figures/KWG-SOSA.png' alt='missing' width="750" height="750" class="center" /> -->
+    <figcaption align="center"><b>Figure 1. Extending SOSA for use in KnowWhereGraph</b></figcaption>
+</figure>
+
+
 <h4>Classes</h4>
 <ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
    <li>
