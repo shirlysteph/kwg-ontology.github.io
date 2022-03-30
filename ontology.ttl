@@ -7,16 +7,31 @@
 @base <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
 
 <http://stko-kwg.geog.ucsb.edu/lod/ontology/> rdf:type owl:Ontology ;
-                                               <http://purl.org/dc/terms/contributor> """Shirly Stephen,
+                                               <http://purl.org/dc/terms/contributor> """Krysztof Janowicz,
+Pascal Hitzler,
+Mark Schildhauer,
+Wenwen Li,
+Dean Rehnberger,
 Rui Zhu,
 Cogan Shimizu,
-Ling Cai,
+Shirly Stephen,
 Lu Zhou,
+Ling Cai,
 Joseph Zalewski,
 Meilin Shi,
 Yuanyuan Tian,
 Sizhe Wang,
-Zhangyu Wang"""@en ;
+Zhangyu Wang,
+Gengchen Mai,
+Colby Fisher,
+Zilong Liu,
+Seila Gonzales,
+David Smith,
+Bryce Mecum,
+Anna Lopez-Carr,
+Andrew Schroeder,
+Thomas Thelen,
+Anthony D'Onofrio"""@en ;
                                                <http://purl.org/dc/terms/created> "2022-02-24"@en ;
                                                <http://purl.org/dc/terms/creator> "The KnowWhereGraph Project" ;
                                                <http://purl.org/dc/terms/description> "This ontology supports the KnowWhereGraph"@en ;
@@ -42,6 +57,14 @@ Zhangyu Wang"""@en ;
 <http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
 
 
+###  http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
@@ -65,6 +88,10 @@ Zhangyu Wang"""@en ;
 #################################################################
 #    Datatypes
 #################################################################
+
+###  http://ld.iospress.nl/rdf/datatype/artifactId
+<http://ld.iospress.nl/rdf/datatype/artifactId> rdf:type rdfs:Datatype .
+
 
 ###  http://www.opengis.net/ont/geosparql#wktLiteral
 <http://www.opengis.net/ont/geosparql#wktLiteral> rdf:type rdfs:Datatype .
@@ -119,8 +146,44 @@ xsd:gYear rdf:type rdfs:Datatype .
                                              rdfs:label "state"@en .
 
 
+###  http://ld.iospress.nl/rdf/ontology/contributorAffiliation
+<http://ld.iospress.nl/rdf/ontology/contributorAffiliation> rdf:type owl:ObjectProperty ;
+                                                            rdfs:label "contributor affiliation" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/contributorRole
+<http://ld.iospress.nl/rdf/ontology/contributorRole> rdf:type owl:ObjectProperty ;
+                                                     rdfs:label "contributor role" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/geocodingOutput
+<http://ld.iospress.nl/rdf/ontology/geocodingOutput> rdf:type owl:ObjectProperty ;
+                                                     rdfs:label "geocoding output" .
+
+
+###  http://purl.org/spar/c4o/hasGlobalCitationFrequency
+<http://purl.org/spar/c4o/hasGlobalCitationFrequency> rdf:type owl:ObjectProperty ;
+                                                      rdfs:label "has global citation frequency" .
+
+
+###  http://purl.org/spar/c4o/hasGlobalCountSource
+<http://purl.org/spar/c4o/hasGlobalCountSource> rdf:type owl:ObjectProperty ;
+                                                rdfs:label "has global count source" .
+
+
 ###  http://qudt.org/1.1/schema/qudt#unit
 <http://qudt.org/1.1/schema/qudt#unit> rdf:type owl:ObjectProperty .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/affectedBy
+:affectedBy rdf:type owl:ObjectProperty ;
+            owl:inverseOf :affectedByInverse ;
+            rdfs:label "affected by" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/affectedByInverse
+:affectedByInverse rdf:type owl:ObjectProperty ;
+                   rdfs:label "inverse of affected by" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/censusGeographyTime
@@ -133,9 +196,25 @@ xsd:gYear rdf:type rdfs:Datatype .
                    "road segment ends at" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/fallsUnderTopic
+:fallsUnderTopic rdf:type owl:ObjectProperty ;
+                 rdfs:label "falls under topic" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasChiefJudge
 :hasChiefJudge rdf:type owl:ObjectProperty ;
                rdfs:label "has chief judge" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasContributor
+:hasContributor rdf:type owl:ObjectProperty ;
+                owl:inverseOf :hasContributorInverse ;
+                rdfs:label "has contributor" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasContributorInverse
+:hasContributorInverse rdf:type owl:ObjectProperty ;
+                       rdfs:label "has contributor inverse" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasDataSource
@@ -153,6 +232,22 @@ xsd:gYear rdf:type rdfs:Datatype .
 :hasDefaultGeometry rdf:type owl:ObjectProperty .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasExpertise
+:hasExpertise rdf:type owl:ObjectProperty ;
+              rdfs:label "expertise" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasFieldsOfStudy
+:hasFieldsOfStudy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :hasFieldsOfStudyInverse ;
+                  rdfs:label "has fields of study" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasFieldsOfStudyInverse
+:hasFieldsOfStudyInverse rdf:type owl:ObjectProperty ;
+                         rdfs:label "has fields of study inverse" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasFireCause
 :hasFireCause rdf:type owl:ObjectProperty ;
               rdfs:label "has fire cause" .
@@ -167,6 +262,27 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasFireMappingAssessmentLabelInverse
 :hasFireMappingAssessmentLabelInverse rdf:type owl:ObjectProperty ;
                                       rdfs:label "has fire mapping label inverse" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasGeometry
+:hasGeometry rdf:type owl:ObjectProperty ;
+             rdfs:label "kwg - has geometry" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasGeometryCollection
+:hasGeometryCollection rdf:type owl:ObjectProperty ;
+                       rdfs:label "has geometry collection" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasGeometryMember
+:hasGeometryMember rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :hasGeometryMemberInverse ;
+                   rdfs:label "has geometry member" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasGeometryMemberInverse
+:hasGeometryMemberInverse rdf:type owl:ObjectProperty ;
+                          rdfs:label "inverse of has geometry member" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasJudgeInfo
@@ -196,6 +312,17 @@ xsd:gYear rdf:type rdfs:Datatype .
             rdfs:label "has program" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasPublicationYear
+:hasPublicationYear rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :hasPublicationYearInverse ;
+                    rdfs:label "has publication year" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasPublicationYearInverse
+:hasPublicationYearInverse rdf:type owl:ObjectProperty ;
+                           rdfs:label "has publication year inverse" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasRoadType
 :hasRoadType rdf:type owl:ObjectProperty ;
              rdfs:label "has road type" .
@@ -212,6 +339,11 @@ xsd:gYear rdf:type rdfs:Datatype .
                   rdfs:label "has storm tracklet" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasSubTopic
+:hasSubTopic rdf:type owl:ObjectProperty ;
+             rdfs:label "has sub topic" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasTemporalScope
 :hasTemporalScope rdf:type owl:ObjectProperty ;
                   rdfs:comment "The temporal scoping property in KWG to represent the temporal extent of a hazard feature" ;
@@ -221,6 +353,17 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasTraumaDescription
 :hasTraumaDescription rdf:type owl:ObjectProperty ;
                       rdfs:label "has trauma description" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasVenue
+:hasVenue rdf:type owl:ObjectProperty ;
+          owl:inverseOf :hasVenueInverse ;
+          rdfs:label "has venue" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasVenueInverse
+:hasVenueInverse rdf:type owl:ObjectProperty ;
+                 rdfs:label "has venue inverse" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/helipadAvailability
@@ -357,6 +500,7 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                    rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
                                                    rdfs:range <http://www.opengis.net/ont/geosparql#Geometry> ;
                                                    rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+                                                   rdfs:label "hasGeometry" ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A spatial representation for a given Feature."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "has geometry"@en .
 
@@ -487,11 +631,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
 <http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdf:type owl:ObjectProperty ;
-                                                 owl:inverseOf <http://www.w3.org/ns/sosa/isFeatureOfInterestOf> .
+                                                 owl:inverseOf <http://www.w3.org/ns/sosa/isFeatureOfInterestOf> ;
+                                                 rdfs:label "hasFeatureOfInterest" .
 
 
 ###  http://www.w3.org/ns/sosa/hasMember
-<http://www.w3.org/ns/sosa/hasMember> rdf:type owl:ObjectProperty .
+<http://www.w3.org/ns/sosa/hasMember> rdf:type owl:ObjectProperty ;
+                                      rdfs:label "hasMember" .
 
 
 ###  http://www.w3.org/ns/sosa/hasObservation
@@ -515,7 +661,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 ###  http://www.w3.org/ns/sosa/observedProperty
-<http://www.w3.org/ns/sosa/observedProperty> rdf:type owl:ObjectProperty .
+<http://www.w3.org/ns/sosa/observedProperty> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "observedProperty" .
 
 
 ###  http://www.w3.org/ns/sosa/phenomenonTime
@@ -618,6 +765,81 @@ xsd:gYear rdf:type rdfs:Datatype .
 <http://gnis-ld.org/lod/gnis/ontology/stateName> rdf:type owl:DatatypeProperty ;
                                                  rdfs:range xsd:string ;
                                                  rdfs:label "state name" .
+
+
+###  http://ld.iospress.nl/rdf/geocode/city
+<http://ld.iospress.nl/rdf/geocode/city> rdf:type owl:DatatypeProperty ;
+                                         rdfs:label "city" .
+
+
+###  http://ld.iospress.nl/rdf/geocode/country
+<http://ld.iospress.nl/rdf/geocode/country> rdf:type owl:DatatypeProperty ;
+                                            rdfs:label "country" .
+
+
+###  http://ld.iospress.nl/rdf/geocode/postalCode
+<http://ld.iospress.nl/rdf/geocode/postalCode> rdf:type owl:DatatypeProperty ;
+                                               rdfs:label "postal code" .
+
+
+###  http://ld.iospress.nl/rdf/geocode/region
+<http://ld.iospress.nl/rdf/geocode/region> rdf:type owl:DatatypeProperty ;
+                                           rdfs:label "region" .
+
+
+###  http://ld.iospress.nl/rdf/geocode/zone
+<http://ld.iospress.nl/rdf/geocode/zone> rdf:type owl:DatatypeProperty ;
+                                         rdfs:label "zone" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/contributorFullName
+<http://ld.iospress.nl/rdf/ontology/contributorFullName> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:label "contributor full name" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/geocodingInput
+<http://ld.iospress.nl/rdf/ontology/geocodingInput> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:label "geocoding input" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/organizationCountry
+<http://ld.iospress.nl/rdf/ontology/organizationCountry> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:label "organization country" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/organizationName
+<http://ld.iospress.nl/rdf/ontology/organizationName> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:label "organization name" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/organizationPlace
+<http://ld.iospress.nl/rdf/ontology/organizationPlace> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:label "organization place" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/publicationAbstract
+<http://ld.iospress.nl/rdf/ontology/publicationAbstract> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:label "publication abstract" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/publicationId
+<http://ld.iospress.nl/rdf/ontology/publicationId> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:label "publication ID" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/publicationTitle
+<http://ld.iospress.nl/rdf/ontology/publicationTitle> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:label "publication title" .
+
+
+###  http://purl.org/spar/c4o/hasGlobalCountDate
+<http://purl.org/spar/c4o/hasGlobalCountDate> rdf:type owl:DatatypeProperty ;
+                                              rdfs:label "has global count date" .
+
+
+###  http://purl.org/spar/c4o/hasGlobalCountValue
+<http://purl.org/spar/c4o/hasGlobalCountValue> rdf:type owl:DatatypeProperty ;
+                                               rdfs:label "has global count value" .
 
 
 ###  http://qudt.org/1.1/schema/qudt#value
@@ -727,6 +949,11 @@ xsd:gYear rdf:type rdfs:Datatype .
 :detailsURL rdf:type owl:DatatypeProperty .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasAlias
+:hasAlias rdf:type owl:DatatypeProperty ;
+          rdfs:label "has alias" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasAzimuth
 :hasAzimuth rdf:type owl:DatatypeProperty ;
             rdfs:domain :Fix ;
@@ -739,6 +966,11 @@ xsd:gYear rdf:type rdfs:Datatype .
          rdfs:comment "metropolitan and micropolitan statistical area code" ;
          rdfs:label "census area code" ,
                     "has drought intensity code" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasDBLPID
+:hasDBLPID rdf:type owl:DatatypeProperty ;
+           rdfs:label "has DBLPID" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasDeclarationDate
@@ -782,6 +1014,11 @@ xsd:gYear rdf:type rdfs:Datatype .
              rdfs:label "has mtbs fire name" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasHomepage
+:hasHomepage rdf:type owl:DatatypeProperty ;
+             rdfs:label "has homepage" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasIncidentName
 :hasIncidentName rdf:type owl:DatatypeProperty ;
                  rdfs:label "has incident name" .
@@ -792,11 +1029,21 @@ xsd:gYear rdf:type rdfs:Datatype .
            rdfs:label "road length" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasMapUnitAreaSymbol
+:hasMapUnitAreaSymbol rdf:type owl:DatatypeProperty ;
+                      rdfs:label "has map unit area symbol" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasNarrative
 :hasNarrative rdf:type owl:DatatypeProperty ;
               rdfs:domain :HazardEpisode ;
               rdfs:range rdfs:Literal ;
               rdfs:label "has hazard narrative" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasORCID
+:hasORCID rdf:type owl:DatatypeProperty ;
+          rdfs:label "has ORCID" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasProgramCloseOutDate
@@ -840,9 +1087,29 @@ xsd:gYear rdf:type rdfs:Datatype .
              rdfs:label "has road sign" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasSoilMapUnitKey
+:hasSoilMapUnitKey rdf:type owl:DatatypeProperty ;
+                   rdfs:label "has soil map unit key" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasSoilMapUnitSymbol
+:hasSoilMapUnitSymbol rdf:type owl:DatatypeProperty ;
+                      rdfs:label "has soil map unit symbol" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasTraumaDefinition
 :hasTraumaDefinition rdf:type owl:DatatypeProperty ;
                      rdfs:label "has trauma definition" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasUri
+:hasUri rdf:type owl:DatatypeProperty ;
+        rdfs:label "has URI" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasVenueName
+:hasVenueName rdf:type owl:DatatypeProperty ;
+              rdfs:label "has venue name" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/hasZipCode
@@ -1030,14 +1297,6 @@ xsd:gYear rdf:type rdfs:Datatype .
 <http://www.w3.org/2003/01/geo/wgs84_pos#asWKT> rdf:type owl:DatatypeProperty .
 
 
-###  http://www.w3.org/2006/time#hasBeginning
-<http://www.w3.org/2006/time#hasBeginning> rdf:type owl:DatatypeProperty .
-
-
-###  http://www.w3.org/2006/time#hasEnd
-<http://www.w3.org/2006/time#hasEnd> rdf:type owl:DatatypeProperty .
-
-
 ###  http://www.w3.org/2006/time#hasXSDDuration
 <http://www.w3.org/2006/time#hasXSDDuration> rdf:type owl:DatatypeProperty ;
                                              rdfs:domain <http://www.w3.org/2006/time#TemporalEntity> ;
@@ -1086,7 +1345,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 ###  http://www.w3.org/ns/sosa/hasSimpleResult
-<http://www.w3.org/ns/sosa/hasSimpleResult> rdf:type owl:DatatypeProperty .
+<http://www.w3.org/ns/sosa/hasSimpleResult> rdf:type owl:DatatypeProperty ;
+                                            rdfs:label "hasSimpleResult" .
 
 
 ###  http://www.w3.org/ns/sosa/resultTime
@@ -1622,6 +1882,64 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                 rdfs:label "Woodland"@en .
 
 
+###  http://ld.iospress.nl/rdf/ontology/Article
+<http://ld.iospress.nl/rdf/ontology/Article> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Publication> ,
+                                                             <http://purl.org/vocab/frbr/core/Endeavour> ;
+                                             rdfs:comment "Source - iospress LD-Connect ontology - https://github.com/stko-lab/LD-Connect" ;
+                                             rdfs:label "Article" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/Contributor
+<http://ld.iospress.nl/rdf/ontology/Contributor> rdf:type owl:Class ;
+                                                 rdfs:comment "Source - iospress LD-Connect ontology - https://github.com/stko-lab/LD-Connect" ;
+                                                 rdfs:label "Contributor" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/GeoCodedLocation
+<http://ld.iospress.nl/rdf/ontology/GeoCodedLocation> rdf:type owl:Class ;
+                                                      rdfs:comment "Source - iospress LD-Connect ontology - https://github.com/stko-lab/LD-Connect" ;
+                                                      rdfs:label "Geocoded Location" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/Organization
+<http://ld.iospress.nl/rdf/ontology/Organization> rdf:type owl:Class ;
+                                                  rdfs:comment "Source - iospress LD-Connect ontology - https://github.com/stko-lab/LD-Connect" ;
+                                                  rdfs:label "Organization" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/Publication
+<http://ld.iospress.nl/rdf/ontology/Publication> rdf:type owl:Class ;
+                                                 rdfs:comment "Source - iospress LD-Connect ontology - https://github.com/stko-lab/LD-Connect" ;
+                                                 rdfs:label "Publication" .
+
+
+###  http://ld.iospress.nl/rdf/ontology/Role
+<http://ld.iospress.nl/rdf/ontology/Role> rdf:type owl:Class ;
+                                          rdfs:comment "Source - iospress LD-Connect ontology - https://github.com/stko-lab/LD-Connect" ;
+                                          rdfs:label "Role" .
+
+
+###  http://purl.org/spar/c4o/BibliographicInformationSource
+<http://purl.org/spar/c4o/BibliographicInformationSource> rdf:type owl:Class ;
+                                                          rdfs:comment "A source of information about bibliographic citations, such as Google Scholar, Web of Science or Scopus." ,
+                                                                       "Source - Citation Counting and Context Characterization Ontology (C4O) - http://www.sparontologies.net/ontologies/c4o" ;
+                                                          rdfs:label "Bibliographic Information Source" .
+
+
+###  http://purl.org/spar/c4o/GlobalCitationCount
+<http://purl.org/spar/c4o/GlobalCitationCount> rdf:type owl:Class ;
+                                               rdfs:comment "Source - Citation Counting and Context Characterization Ontology (C4O) - http://www.sparontologies.net/ontologies/c4o" ,
+                                                            "The number of times a work has been cited globally, as determined from a particular bibliographic information source on a particular date." ;
+                                               rdfs:label "Global Citation Count" .
+
+
+###  http://purl.org/vocab/frbr/core/Endeavour
+<http://purl.org/vocab/frbr/core/Endeavour> rdf:type owl:Class ;
+                                            rdfs:comment "Source - Functional Requirements for Bibliographic Record (FRBR) ontology - http://www.sparontologies.net/ontologies/frbr" ;
+                                            rdfs:label "Endeavour" .
+
+
 ###  http://qudt.org/1.1/schema/qudt#Quantity
 <http://qudt.org/1.1/schema/qudt#Quantity> rdf:type owl:Class .
 
@@ -1770,27 +2088,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                 rdfs:label "EPA Air Quality Site" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/AstronomicalLowTide
-:AstronomicalLowTide rdf:type owl:Class ;
-                     rdfs:subClassOf :NOAAHazard ;
-                     rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                     rdfs:label "Astronomical Low Tide Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Avalanche
-:Avalanche rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Avalanche Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Blizzard
-:Blizzard rdf:type owl:Class ;
-          rdfs:subClassOf :NOAAHazard ;
-          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-          rdfs:label "Blizzard Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/BlueskyModel
 :BlueskyModel rdf:type owl:Class ;
               rdfs:subClassOf <http://www.w3.org/ns/sosa/Sensor> ;
@@ -1910,20 +2207,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                     rdfs:label "Climate Observation" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/CoastalFlood
-:CoastalFlood rdf:type owl:Class ;
-              rdfs:subClassOf :NOAAHazard ;
-              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-              rdfs:label "Coastal Flood Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ColdWindChill
-:ColdWindChill rdf:type owl:Class ;
-               rdfs:subClassOf :NOAAHazard ;
-               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-               rdfs:label "Cold/Wind Chill Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ComplexFire
 :ComplexFire rdf:type owl:Class ;
              rdfs:subClassOf :Fire .
@@ -1964,13 +2247,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                 rdfs:label "Cropland Result" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DebrisFlow
-:DebrisFlow rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Debris Flow Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DebrisRemoval-PA-A
 :DebrisRemoval-PA-A rdf:type owl:Class ;
                     rdfs:subClassOf :PublicAssistance ;
@@ -1983,20 +2259,6 @@ xsd:gYear rdf:type rdfs:Datatype .
              rdfs:comment "Source - OpenFEMA (https://www.fema.gov/about/openfema/data-sets)" ,
                           "The class that is used to represent all instances of declaration from the OpenFEMA dataset" ;
              rdfs:label "FEMA Declaration" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DenseFog
-:DenseFog rdf:type owl:Class ;
-          rdfs:subClassOf :NOAAHazard ;
-          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-          rdfs:label "Dense Fog Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DenseSmoke
-:DenseSmoke rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Dense Smoke Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DirectFederalAssistance
@@ -2036,13 +2298,6 @@ xsd:gYear rdf:type rdfs:Datatype .
      rdfs:label "DoD" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Drought
-:Drought rdf:type owl:Class ;
-         rdfs:subClassOf :NOAAHazard ;
-         rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-         rdfs:label "Drought Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DroughtIntensity
 :DroughtIntensity rdf:type owl:Class ;
                   rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ;
@@ -2070,20 +2325,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                                          rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservationCollection> ;
                                          rdfs:comment "Source - https://droughtmonitor.unl.edu/DmData/GISData.aspx" ;
                                          rdfs:label "Drought Zone Overlap Observation Collection" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DustDevil
-:DustDevil rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Dust Devil Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/DustStorm
-:DustStorm rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Dust Storm Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Earthquake
@@ -2122,18 +2363,9 @@ xsd:gYear rdf:type rdfs:Datatype .
               rdfs:label "NOAA Hazard Event Segment" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ExcessiveHeat
-:ExcessiveHeat rdf:type owl:Class ;
-               rdfs:subClassOf :NOAAHazard ;
-               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-               rdfs:label "Excessive Heat Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ExtremeColdWindChill
-:ExtremeColdWindChill rdf:type owl:Class ;
-                      rdfs:subClassOf :NOAAHazard ;
-                      rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                      rdfs:label "Extreme Cold/Wind Chill Event" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ExpertiseTopic
+:ExpertiseTopic rdf:type owl:Class ;
+                rdfs:label "Expertise Topic" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/FederalJudicalDistrict
@@ -2142,6 +2374,11 @@ xsd:gYear rdf:type rdfs:Datatype .
                                         <http://www.opengis.net/ont/geosparql#Feature> ;
                         rdfs:comment "Source - HIFLD (https://hifld-geoplatform.opendata.arcgis.com/datasets/us-district-court-jurisdictions/explore?location=40.830482%2C-90.571266%2C4.68, https://www.uscourts.gov/about-federal-courts/federal-courts-public/court-website-links)" ;
                         rdfs:label "Federal Judicial District" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/FieldsOfStudy
+:FieldsOfStudy rdf:type owl:Class ;
+               rdfs:label "Fields of study" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Fire
@@ -2182,56 +2419,21 @@ xsd:gYear rdf:type rdfs:Datatype .
      rdfs:label "NOAA Hazard Fix" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/FlashFlood
-:FlashFlood rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Flash Flood Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Flood
-:Flood rdf:type owl:Class ;
-       rdfs:subClassOf :NOAAHazard ;
-       rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-       rdfs:label "Flood Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/FreezingFog
-:FreezingFog rdf:type owl:Class ;
-             rdfs:subClassOf :NOAAHazard ;
-             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-             rdfs:label "Freezing Fog Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/FrostFreeze
-:FrostFreeze rdf:type owl:Class ;
-             rdfs:subClassOf :NOAAHazard ;
-             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-             rdfs:label "Frost/Freeze Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/FunnelCloud
-:FunnelCloud rdf:type owl:Class ;
-             rdfs:subClassOf :NOAAHazard ;
-             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-             rdfs:label "Funnel Cloud Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Geometry
 :Geometry rdf:type owl:Class .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Hail
-:Hail rdf:type owl:Class ;
-      rdfs:subClassOf :NOAAHazard ;
-      rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-      rdfs:label "Hail Event" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/GeometryCollection
+:GeometryCollection rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> ;
+                    rdfs:label "Geometry Collection" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Hazard
 :Hazard rdf:type owl:Class ;
         rdfs:comment "Hazard" ,
-                     "The general hazard event class in KWG" ;
+                     "The general hazard event class in KWG" ,
+                     "event" ;
         rdfs:label "Hazard" .
 
 
@@ -2248,45 +2450,10 @@ xsd:gYear rdf:type rdfs:Datatype .
                   rdfs:label "Hazard Mitigation" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Heat
-:Heat rdf:type owl:Class ;
-      rdfs:subClassOf :NOAAHazard ;
-      rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-      rdfs:label "Heat Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/HeavyRain
-:HeavyRain rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Heavy Rain Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/HeavySnow
-:HeavySnow rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Heavy Snow Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/HelipadAvailability
 :HelipadAvailability rdf:type owl:Class ;
                      rdfs:comment "Source - https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals-2/about" ;
                      rdfs:label "Helipad Availability" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/HighSurf
-:HighSurf rdf:type owl:Class ;
-          rdfs:subClassOf :NOAAHazard ;
-          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-          rdfs:label "High Surf Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/HighWind
-:HighWind rdf:type owl:Class ;
-          rdfs:subClassOf :NOAAHazard ;
-          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-          rdfs:label "High Wind Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Hospital
@@ -2309,18 +2476,11 @@ xsd:gYear rdf:type rdfs:Datatype .
               rdfs:label "Hospital Type" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Hurricane
-:Hurricane rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Hurricane Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/IceStorm
-:IceStorm rdf:type owl:Class ;
-          rdfs:subClassOf :NOAAHazard ;
-          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-          rdfs:label "Ice Storm Event" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/HousingAssistance
+:HousingAssistance rdf:type owl:Class ;
+                   rdfs:subClassOf :Program ;
+                   rdfs:comment "Source - OpenFEMA (https://www.fema.gov/about/openfema/data-sets)" ;
+                   rdfs:label "Housing Assistance" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ImpactObservableProperty
@@ -2351,6 +2511,13 @@ xsd:gYear rdf:type rdfs:Datatype .
                           rdfs:label "Individual & Family Grant" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/IndividualAssistance
+:IndividualAssistance rdf:type owl:Class ;
+                      rdfs:subClassOf :Program ;
+                      rdfs:comment "Source - OpenFEMA (https://www.fema.gov/about/openfema/data-sets)" ;
+                      rdfs:label "Individual Assistance" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/IndividualAssistance-PA-C
 :IndividualAssistance-PA-C rdf:type owl:Class ;
                            rdfs:subClassOf :PublicAssistance ;
@@ -2376,20 +2543,6 @@ xsd:gYear rdf:type rdfs:Datatype .
           rdfs:comment "For legal entities, the LSAD reflects the term that appears in legal documentation pertaining to the entity, such as a treaty, charter, legislation, resolution, or ordinance. For statistical entities, the LSAD is the term assigned by the Census Bureau or other agency defining the entity. The LSAD code is a two-character field that corresponds to a description of the legal or statistical type of entity and identifies whether the LSAD term should be capitalized and should precede or follow the name of the geographic entity." ,
                        "Source - US Census Bureau (https://www.census.gov/data/datasets.html)" ;
           rdfs:label "Legal/Statistical Area Description (LSAD)" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Lake-EffectSnow
-:Lake-EffectSnow rdf:type owl:Class ;
-                 rdfs:subClassOf :NOAAHazard ;
-                 rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                 rdfs:label "Lake-Effect Snow Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/LakeshoreFlood
-:LakeshoreFlood rdf:type owl:Class ;
-                rdfs:subClassOf :NOAAHazard ;
-                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                rdfs:label "Lakeshore Flood Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Level_I
@@ -2476,13 +2629,6 @@ xsd:gYear rdf:type rdfs:Datatype .
          rdfs:label "Trauma Level V" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Lightning
-:Lightning rdf:type owl:Class ;
-           rdfs:subClassOf :NOAAHazard ;
-           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-           rdfs:label "Lightning Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSComplexFire
 :MTBSComplexFire rdf:type owl:Class ;
                  rdfs:subClassOf :ComplexFire ,
@@ -2544,8 +2690,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                  rdfs:label "MTBS Unknown FIre" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSWildFire
-:MTBSWildFire rdf:type owl:Class ;
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MTBSWildfire
+:MTBSWildfire rdf:type owl:Class ;
               rdfs:subClassOf :MTBSFire ,
                               :Wildfire ;
               rdfs:comment "Source - MTBS (https://mtbs.gov/direct-downloadhttps://mtbs.gov/direct-download)" ;
@@ -2594,53 +2740,14 @@ xsd:gYear rdf:type rdfs:Datatype .
                 rdfs:label "MTBS Mapping Label" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineHail
-:MarineHail rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Marine Hail Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineHighWind
-:MarineHighWind rdf:type owl:Class ;
-                rdfs:subClassOf :NOAAHazard ;
-                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                rdfs:label "Marine High Wind Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineHurricaneTyphoon
-:MarineHurricaneTyphoon rdf:type owl:Class ;
-                        rdfs:subClassOf :NOAAHazard ;
-                        rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                        rdfs:label "Marine Hurricane/Typhoon Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineStrongWind
-:MarineStrongWind rdf:type owl:Class ;
-                  rdfs:subClassOf :NOAAHazard ;
-                  rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                  rdfs:label "Marine Strong Wind Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineThunderstormWind
-:MarineThunderstormWind rdf:type owl:Class ;
-                        rdfs:subClassOf :NOAAHazard ;
-                        rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                        rdfs:label "Marine Thunderstorm Wind Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineTropicalDepression
-:MarineTropicalDepression rdf:type owl:Class ;
-                          rdfs:subClassOf :NOAAHazard ;
-                          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                          rdfs:label "Marine Tropical Depression Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/MarineTropicalStorm
-:MarineTropicalStorm rdf:type owl:Class ;
-                     rdfs:subClassOf :NOAAHazard ;
-                     rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                     rdfs:label "Marine Tropical Storm Event" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFCFire
+:NIFCFire rdf:type owl:Class ;
+          rdfs:subClassOf :Fire ,
+                          <http://www.opengis.net/ont/geosparql#Feature> ,
+                          <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+          rdfs:comment "Any fire that covers a geographically-significant amount of land." ,
+                       "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
+          rdfs:label "NIFC Fire" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFCFireObservableProperty
@@ -2658,41 +2765,164 @@ xsd:gYear rdf:type rdfs:Datatype .
                      rdfs:label "NIFC Fire Observation" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFC_Fire
-:NIFC_Fire rdf:type owl:Class ;
-           rdfs:subClassOf :Fire ,
-                           <http://www.opengis.net/ont/geosparql#Feature> ,
-                           <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-           rdfs:comment "Any fire that covers a geographically-significant amount of land." ,
-                        "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
-           rdfs:label "NIFC Fire" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFCIncidentComplexFire
+:NIFCIncidentComplexFire rdf:type owl:Class ;
+                         rdfs:subClassOf :ComplexFire ,
+                                         :NIFCFire ;
+                         rdfs:comment "An incident consisting of multiple fires." ,
+                                      "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
+                         rdfs:label "NIFC Incident Complex Fire" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFC_IncidentComplexFire
-:NIFC_IncidentComplexFire rdf:type owl:Class ;
-                          rdfs:subClassOf :ComplexFire ,
-                                          :NIFC_Fire ;
-                          rdfs:comment "An incident consisting of multiple fires." ,
-                                       "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
-                          rdfs:label "NIFC Incident Complex Fire" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFCPrescribedFire
+:NIFCPrescribedFire rdf:type owl:Class ;
+                    rdfs:subClassOf :NIFCFire ,
+                                    :PrescribedFire ;
+                    rdfs:comment "An intentionally-set fire." ,
+                                 "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
+                    rdfs:label "NIFC Prescribed Fire" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFC_PrescribedFire
-:NIFC_PrescribedFire rdf:type owl:Class ;
-                     rdfs:subClassOf :NIFC_Fire ,
-                                     :PrescribedFire ;
-                     rdfs:comment "An intentionally-set fire." ,
-                                  "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
-                     rdfs:label "NIFC Prescribed Fire" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFCWildfire
+:NIFCWildfire rdf:type owl:Class ;
+              rdfs:subClassOf :NIFCFire ,
+                              :Wildfire ;
+              rdfs:comment "An unintentional fire or a fire that is declared a wildfire" ,
+                           "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
+              rdfs:label "NIFC Wildfire" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NIFC_Wildfire
-:NIFC_Wildfire rdf:type owl:Class ;
-               rdfs:subClassOf :NIFC_Fire ,
-                               :Wildfire ;
-               rdfs:comment "An unintentional fire or a fire that is declared a wildfire" ,
-                            "Source - NIFC (https://data-nifc.opendata.arcgis.com/datasets/wildland-fire-locations-full-history?geometry=98.438%2C-88.438%2C-98.438%2C88.438)" ;
-               rdfs:label "NIFC Wildfire" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAAstronomicalLowTide
+:NOAAAstronomicalLowTide rdf:type owl:Class ;
+                         rdfs:subClassOf :NOAAHazard ;
+                         rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                         rdfs:label "Astronomical Low Tide Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAAvalanche
+:NOAAAvalanche rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Avalanche Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAABlizzard
+:NOAABlizzard rdf:type owl:Class ;
+              rdfs:subClassOf :NOAAHazard ;
+              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+              rdfs:label "Blizzard Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAACoastalFlood
+:NOAACoastalFlood rdf:type owl:Class ;
+                  rdfs:subClassOf :NOAAHazard ;
+                  rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                  rdfs:label "Coastal Flood Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAColdWindChill
+:NOAAColdWindChill rdf:type owl:Class ;
+                   rdfs:subClassOf :NOAAHazard ;
+                   rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                   rdfs:label "Cold/Wind Chill Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAADebrisFlow
+:NOAADebrisFlow rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Debris Flow Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAADenseFog
+:NOAADenseFog rdf:type owl:Class ;
+              rdfs:subClassOf :NOAAHazard ;
+              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+              rdfs:label "Dense Fog Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAADenseSmoke
+:NOAADenseSmoke rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Dense Smoke Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAADrought
+:NOAADrought rdf:type owl:Class ;
+             rdfs:subClassOf :NOAAHazard ;
+             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+             rdfs:label "Drought Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAADustDevil
+:NOAADustDevil rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Dust Devil Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAADustStorm
+:NOAADustStorm rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Dust Storm Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAExcessiveHeat
+:NOAAExcessiveHeat rdf:type owl:Class ;
+                   rdfs:subClassOf :NOAAHazard ;
+                   rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                   rdfs:label "Excessive Heat Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAExtremeColdWindChill
+:NOAAExtremeColdWindChill rdf:type owl:Class ;
+                          rdfs:subClassOf :NOAAHazard ;
+                          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                          rdfs:label "Extreme Cold/Wind Chill Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAFlashFlood
+:NOAAFlashFlood rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Flash Flood Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAFlood
+:NOAAFlood rdf:type owl:Class ;
+           rdfs:subClassOf :NOAAHazard ;
+           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+           rdfs:label "Flood Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAFreezingFog
+:NOAAFreezingFog rdf:type owl:Class ;
+                 rdfs:subClassOf :NOAAHazard ;
+                 rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                 rdfs:label "Freezing Fog Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAFrostFreeze
+:NOAAFrostFreeze rdf:type owl:Class ;
+                 rdfs:subClassOf :NOAAHazard ;
+                 rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                 rdfs:label "Frost/Freeze Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAFunnelCloud
+:NOAAFunnelCloud rdf:type owl:Class ;
+                 rdfs:subClassOf :NOAAHazard ;
+                 rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                 rdfs:label "Funnel Cloud Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHail
+:NOAAHail rdf:type owl:Class ;
+          rdfs:subClassOf :NOAAHazard ;
+          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+          rdfs:label "Hail Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHazard
@@ -2702,6 +2932,217 @@ xsd:gYear rdf:type rdfs:Datatype .
                             <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
             rdfs:label "NOAA Hazard" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHeat
+:NOAAHeat rdf:type owl:Class ;
+          rdfs:subClassOf :NOAAHazard ;
+          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+          rdfs:label "Heat Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHeavyRain
+:NOAAHeavyRain rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Heavy Rain Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHeavySnow
+:NOAAHeavySnow rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Heavy Snow Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHighSurf
+:NOAAHighSurf rdf:type owl:Class ;
+              rdfs:subClassOf :NOAAHazard ;
+              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+              rdfs:label "High Surf Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHighWind
+:NOAAHighWind rdf:type owl:Class ;
+              rdfs:subClassOf :NOAAHazard ;
+              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+              rdfs:label "High Wind Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAHurricane
+:NOAAHurricane rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Hurricane Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAIceStorm
+:NOAAIceStorm rdf:type owl:Class ;
+              rdfs:subClassOf :NOAAHazard ;
+              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+              rdfs:label "Ice Storm Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAALake-EffectSnow
+:NOAALake-EffectSnow rdf:type owl:Class ;
+                     rdfs:subClassOf :NOAAHazard ;
+                     rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                     rdfs:label "Lake-Effect Snow Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAALakeshoreFlood
+:NOAALakeshoreFlood rdf:type owl:Class ;
+                    rdfs:subClassOf :NOAAHazard ;
+                    rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                    rdfs:label "Lakeshore Flood Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAALightning
+:NOAALightning rdf:type owl:Class ;
+               rdfs:subClassOf :NOAAHazard ;
+               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+               rdfs:label "Lightning Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineHail
+:NOAAMarineHail rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Marine Hail Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineHighWind
+:NOAAMarineHighWind rdf:type owl:Class ;
+                    rdfs:subClassOf :NOAAHazard ;
+                    rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                    rdfs:label "Marine High Wind Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineHurricaneTyphoon
+:NOAAMarineHurricaneTyphoon rdf:type owl:Class ;
+                            rdfs:subClassOf :NOAAHazard ;
+                            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                            rdfs:label "Marine Hurricane/Typhoon Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineStrongWind
+:NOAAMarineStrongWind rdf:type owl:Class ;
+                      rdfs:subClassOf :NOAAHazard ;
+                      rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                      rdfs:label "Marine Strong Wind Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineThunderstormWind
+:NOAAMarineThunderstormWind rdf:type owl:Class ;
+                            rdfs:subClassOf :NOAAHazard ;
+                            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                            rdfs:label "Marine Thunderstorm Wind Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineTropicalDepression
+:NOAAMarineTropicalDepression rdf:type owl:Class ;
+                              rdfs:subClassOf :NOAAHazard ;
+                              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                              rdfs:label "Marine Tropical Depression Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAMarineTropicalStorm
+:NOAAMarineTropicalStorm rdf:type owl:Class ;
+                         rdfs:subClassOf :NOAAHazard ;
+                         rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                         rdfs:label "Marine Tropical Storm Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAARipCurrent
+:NOAARipCurrent rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Rip Current Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAASleet
+:NOAASleet rdf:type owl:Class ;
+           rdfs:subClassOf :NOAAHazard ;
+           rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+           rdfs:label "Sleet Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAASneakerwave
+:NOAASneakerwave rdf:type owl:Class ;
+                 rdfs:subClassOf :NOAAHazard ;
+                 rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                 rdfs:label "Sneakerwave Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAStormSurgeTide
+:NOAAStormSurgeTide rdf:type owl:Class ;
+                    rdfs:subClassOf :NOAAHazard ;
+                    rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                    rdfs:label "Storm Surge/Tide Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAStrongWind
+:NOAAStrongWind rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Strong Wind Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAThunderstormWind
+:NOAAThunderstormWind rdf:type owl:Class ;
+                      rdfs:subClassOf :NOAAHazard ;
+                      rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                      rdfs:label "Thunderstorm Wind Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAATornado
+:NOAATornado rdf:type owl:Class ;
+             rdfs:subClassOf :NOAAHazard ;
+             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+             rdfs:label "Tornado Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAATropicalDepression
+:NOAATropicalDepression rdf:type owl:Class ;
+                        rdfs:subClassOf :NOAAHazard ;
+                        rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                        rdfs:label "Tropical Depression Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAATropicalStorm
+:NOAATropicalStorm rdf:type owl:Class ;
+                   rdfs:subClassOf :NOAAHazard ;
+                   rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                   rdfs:label "Tropical Storm Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAWaterspout
+:NOAAWaterspout rdf:type owl:Class ;
+                rdfs:subClassOf :NOAAHazard ;
+                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                rdfs:label "Waterspout Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAWildfire
+:NOAAWildfire rdf:type owl:Class ;
+              rdfs:subClassOf :NOAAHazard ,
+                              :Wildfire ;
+              rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+              rdfs:label "Wildfire Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAWinterStorm
+:NOAAWinterStorm rdf:type owl:Class ;
+                 rdfs:subClassOf :NOAAHazard ;
+                 rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                 rdfs:label "Winter Storm Event" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NOAAWinterWeather
+:NOAAWinterWeather rdf:type owl:Class ;
+                   rdfs:subClassOf :NOAAHazard ;
+                   rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
+                   rdfs:label "Winter Weather Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/NWZone
@@ -2846,13 +3287,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                  rdfs:label "Regional Circuit" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/RipCurrent
-:RipCurrent rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Rip Current Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/RoadSegment
 :RoadSegment rdf:type owl:Class ;
              rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
@@ -2889,13 +3323,6 @@ xsd:gYear rdf:type rdfs:Datatype .
         rdfs:label "S2 Cell" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Sleet
-:Sleet rdf:type owl:Class ;
-       rdfs:subClassOf :NOAAHazard ;
-       rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-       rdfs:label "Sleet Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/SmallBusinessAdministration
 :SmallBusinessAdministration rdf:type owl:Class ;
                              rdfs:subClassOf :Program ;
@@ -2926,18 +3353,41 @@ xsd:gYear rdf:type rdfs:Datatype .
                     rdfs:label "Smoke Plume Snapshot" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Sneakerwave
-:Sneakerwave rdf:type owl:Class ;
-             rdfs:subClassOf :NOAAHazard ;
-             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-             rdfs:label "Sneakerwave Event" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/SoilMapUnit
+:SoilMapUnit rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ,
+                             <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+             rdfs:comment "Source - NRCS-USDA (https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627)" ;
+             rdfs:label "Soil Map Unit" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/StormSurgeTide
-:StormSurgeTide rdf:type owl:Class ;
-                rdfs:subClassOf :NOAAHazard ;
-                rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                rdfs:label "Storm Surge/Tide Event" .
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/SoilMapUnitObservableProperty
+:SoilMapUnitObservableProperty rdf:type owl:Class ;
+                               rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                               rdfs:comment "Source - NRCS-USDA (https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627)" ;
+                               rdfs:label "Soil Map Unit Observable Property" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/SoilMapUnitObservation
+:SoilMapUnitObservation rdf:type owl:Class ;
+                        rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
+                        rdfs:comment "Source - NRCS-USDA (https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627)" ;
+                        rdfs:label "Soil Map Unit Observation" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/SoilMapUnitObservationCollection
+:SoilMapUnitObservationCollection rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservationCollection> ;
+                                  rdfs:comment "Source - NRCS-USDA (https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627)" ;
+                                  rdfs:label "Soil Map Unit Observation Collection" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/SoilMapUnitOverlapObservation
+:SoilMapUnitOverlapObservation rdf:type owl:Class ;
+                               rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
+                               rdfs:comment "Source - NRCS-USDA (https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/survey/?cid=nrcs142p2_053627)" ,
+                                            "This is a computed value within KWG" ;
+                               rdfs:label "Soil Map Unit Overlap Observation" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/StormTrack
@@ -2998,13 +3448,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                                     rdfs:label "Storm Tracklet Observation Collection" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/StrongWind
-:StrongWind rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Strong Wind Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/TRF
 :TRF rdf:type owl:Class ;
      rdfs:subClassOf :TraumaLevelCare ;
@@ -3017,20 +3460,6 @@ xsd:gYear rdf:type rdfs:Datatype .
      rdfs:subClassOf :TraumaLevelCare ;
      rdfs:comment "Source - https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::trauma-levels-1/explore" ;
      rdfs:label "Trauma Care TRH" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ThunderstormWind
-:ThunderstormWind rdf:type owl:Class ;
-                  rdfs:subClassOf :NOAAHazard ;
-                  rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                  rdfs:label "Thunderstorm Wind Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Tornado
-:Tornado rdf:type owl:Class ;
-         rdfs:subClassOf :NOAAHazard ;
-         rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-         rdfs:label "Tornado Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/TornadoMagnitudeObservationCollection
@@ -3050,20 +3479,6 @@ xsd:gYear rdf:type rdfs:Datatype .
 :TraumaLevelCare rdf:type owl:Class ;
                  rdfs:comment "Source - https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::trauma-levels-1/explore" ;
                  rdfs:label "Trauma Level Care" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/TropicalDepression
-:TropicalDepression rdf:type owl:Class ;
-                    rdfs:subClassOf :NOAAHazard ;
-                    rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-                    rdfs:label "Tropical Depression Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/TropicalStorm
-:TropicalStorm rdf:type owl:Class ;
-               rdfs:subClassOf :NOAAHazard ;
-               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-               rdfs:label "Tropical Storm Event" .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/USCensusMSA
@@ -3091,6 +3506,11 @@ xsd:gYear rdf:type rdfs:Datatype .
              rdfs:label "US President" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Venue
+:Venue rdf:type owl:Class ;
+       rdfs:label "Venue" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/VulnerabilityIndexObservation
 :VulnerabilityIndexObservation rdf:type owl:Class ;
                                rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
@@ -3112,19 +3532,8 @@ xsd:gYear rdf:type rdfs:Datatype .
                              rdfs:label "Water Control Facilities (PA-E)" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Waterspout
-:Waterspout rdf:type owl:Class ;
-            rdfs:subClassOf :NOAAHazard ;
-            rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-            rdfs:label "Waterspout Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/Wildfire
-:Wildfire rdf:type owl:Class ;
-          rdfs:subClassOf :Fire ,
-                          :NOAAHazard ;
-          rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-          rdfs:label "Wildfire Event" .
+:Wildfire rdf:type owl:Class .
 
 
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/WildlandFireUse
@@ -3139,20 +3548,6 @@ xsd:gYear rdf:type rdfs:Datatype .
                                     rdfs:label "Wind Magnitude Observation Collection" .
 
 
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/WinterStorm
-:WinterStorm rdf:type owl:Class ;
-             rdfs:subClassOf :NOAAHazard ;
-             rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-             rdfs:label "Winter Storm Event" .
-
-
-###  http://stko-kwg.geog.ucsb.edu/lod/ontology/WinterWeather
-:WinterWeather rdf:type owl:Class ;
-               rdfs:subClassOf :NOAAHazard ;
-               rdfs:comment "Source - NOAA (https://www.ncdc.noaa.gov/stormevents/ftp.jsp)" ;
-               rdfs:label "Winter Weather Event" .
-
-
 ###  http://stko-kwg.geog.ucsb.edu/lod/ontology/ZipCodeArea
 :ZipCodeArea rdf:type owl:Class ;
              rdfs:subClassOf :Region ,
@@ -3162,10 +3557,186 @@ xsd:gYear rdf:type rdfs:Datatype .
              rdfs:label "Zip Code Area" .
 
 
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/AnimalIncident
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/AnimalIncident> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Biological> ;
+                                                                      rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                      rdfs:label "Animal Incident" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Biological
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Biological> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf :Hazard ;
+                                                                  rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                  rdfs:label "Biological" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Climatological
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Climatological> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf :Hazard ;
+                                                                      rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                      rdfs:label "Climatological" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/ConvectiveStorm
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/ConvectiveStorm> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological> ;
+                                                                       rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                       rdfs:label "Convective Storm" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Disease
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Disease> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Biological> ;
+                                                               rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                               rdfs:label "Disease" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Drought
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Drought> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Climatological> ;
+                                                               rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                               rdfs:label "Drought" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Earthquake
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Earthquake> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Geophysical> ;
+                                                                  rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                  rdfs:label "Earthquake" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Extraterrestrial
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Extraterrestrial> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf :Hazard ;
+                                                                        rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                        rdfs:label "Extraterrestrial" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/ExtratropicalStorm
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/ExtratropicalStorm> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological> ;
+                                                                          rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                          rdfs:label "Extratropical Storm" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/ExtremeTemperature
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/ExtremeTemperature> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological> ;
+                                                                          rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                          rdfs:label "Extreme Temperature" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Flood
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Flood> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Hydrological> ;
+                                                             rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                             rdfs:label "Flood" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Fog
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Fog> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological> ;
+                                                           rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                           rdfs:label "Fog" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Geophysical
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Geophysical> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf :Hazard ;
+                                                                   rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                   rdfs:label "Geophysical" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/GlacialLakeOutburst
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/GlacialLakeOutburst> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Climatological> ;
+                                                                           rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                           rdfs:label "Glacial Lake Outburst" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Hydrological
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Hydrological> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf :Hazard ;
+                                                                    rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                    rdfs:label "Hydrological" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Impact
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Impact> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Extraterrestrial> ;
+                                                              rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                              rdfs:label "Impact" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/InsectInfestation
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/InsectInfestation> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Biological> ;
+                                                                         rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                         rdfs:label "Insect Infestation" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Landslide
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Landslide> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Hydrological> ;
+                                                                 rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                 rdfs:label "Landslide" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/MassMovement
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/MassMovement> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Geophysical> ;
+                                                                    rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                    rdfs:label "Mass Movement" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf :Hazard ;
+                                                                      rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                      rdfs:label "Meterological" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/SpaceWeather
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/SpaceWeather> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Extraterrestrial> ;
+                                                                    rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                    rdfs:label "Space Weather" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/TropicalCyclone
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/TropicalCyclone> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Metereological> ;
+                                                                       rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                       rdfs:label "Tropical Cyclone" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/VolcanicActivity
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/VolcanicActivity> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Geophysical> ;
+                                                                        rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                        rdfs:label "Volcanic Activity" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/WaveAction
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/WaveAction> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Hydrological> ;
+                                                                  rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                  rdfs:label "Wave Action" .
+
+
+###  http://www.knowwheregraph.org/ontologies/hazard/IRDR/Wildfire
+<http://www.knowwheregraph.org/ontologies/hazard/IRDR/Wildfire> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://www.knowwheregraph.org/ontologies/hazard/IRDR/Climatological> ;
+                                                                rdfs:comment "Source - IRDR - https://www.irdrinternational.org/knowledge_pool/publications/173" ;
+                                                                rdfs:label "Wildfire" .
+
+
 ###  http://www.opengis.net/ont/geosparql#Feature
 <http://www.opengis.net/ont/geosparql#Feature> rdf:type owl:Class ;
                                                rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> ;
                                                owl:disjointWith <http://www.opengis.net/ont/geosparql#Geometry> ,
+                                                                <http://www.opengis.net/ont/geosparql#SpatialObject> ,
                                                                 <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
                                                                 <http://www.w3.org/ns/sosa/ObservableProperty> ,
                                                                 <http://www.w3.org/ns/sosa/Observation> ,
@@ -3180,6 +3751,11 @@ xsd:gYear rdf:type rdfs:Datatype .
 ###  http://www.opengis.net/ont/geosparql#Geometry
 <http://www.opengis.net/ont/geosparql#Geometry> rdf:type owl:Class ;
                                                 rdfs:subClassOf <http://www.opengis.net/ont/geosparql#SpatialObject> ;
+                                                owl:disjointWith <http://www.opengis.net/ont/geosparql#SpatialObject> ,
+                                                                 <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                                                                 <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                                                 <http://www.w3.org/ns/sosa/Observation> ,
+                                                                 <http://www.w3.org/ns/sosa/ObservationCollection> ;
                                                 rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
                                                 <http://www.w3.org/2004/02/skos/core#definition> "A coherent set of direct positions in Euclidian space. A direct position holds the coordinates for a position within a Coordinate Reference System (CRS)."@en ;
                                                 <http://www.w3.org/2004/02/skos/core#note> "Geometry can be used as a representation of the shape, extent or location of a Feature, or can exist as a self-contained entity."@en ;
@@ -3188,6 +3764,10 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://www.opengis.net/ont/geosparql#SpatialObject
 <http://www.opengis.net/ont/geosparql#SpatialObject> rdf:type owl:Class ;
+                                                     owl:disjointWith <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                                                                      <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                                                      <http://www.w3.org/ns/sosa/Observation> ,
+                                                                      <http://www.w3.org/ns/sosa/ObservationCollection> ;
                                                      rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
                                                      rdfs:label "Spatial Object" ;
                                                      <http://www.w3.org/2004/02/skos/core#definition> "Anything spatial (having or being a shape, position or an extent)."@en ;
@@ -4654,6 +5234,69 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                                                        rdfs:label "smoke density" .
 
 
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.aws0150wta
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.aws0150wta> rdf:type owl:NamedIndividual ,
+                                                                                               :SoilMapUnitObservableProperty ;
+                                                                                      rdfs:comment "available water storage 0-150 cm - weighted average" ;
+                                                                                      rdfs:label "aws0150wta" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.castorieindex
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.castorieindex> rdf:type owl:NamedIndividual ,
+                                                                                                  :SoilMapUnitObservableProperty ;
+                                                                                         rdfs:comment "california storie index" ;
+                                                                                         rdfs:label "castorieindex" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.farmlndcl
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.farmlndcl> rdf:type owl:NamedIndividual ,
+                                                                                              :SoilMapUnitObservableProperty ;
+                                                                                     rdfs:comment "farmland class" ;
+                                                                                     rdfs:label "farmlndcl" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.ffd_r
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.ffd_r> rdf:type owl:NamedIndividual ,
+                                                                                          :SoilMapUnitObservableProperty ;
+                                                                                 rdfs:comment "days between last and first frost - representative value" ;
+                                                                                 rdfs:label "ffd_r" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.flodfreqdcd
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.flodfreqdcd> rdf:type owl:NamedIndividual ,
+                                                                                                :SoilMapUnitObservableProperty ;
+                                                                                       rdfs:comment "flooding frequency - dominant condition" ;
+                                                                                       rdfs:label "flodfreqdcd" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.iccdcd
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.iccdcd> rdf:type owl:NamedIndividual ,
+                                                                                           :SoilMapUnitObservableProperty ;
+                                                                                  rdfs:comment "non-irrigated capability class - dominant condition" ;
+                                                                                  rdfs:label "iccdcd" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.nccpi3all
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.nccpi3all> rdf:type owl:NamedIndividual ,
+                                                                                              :SoilMapUnitObservableProperty ;
+                                                                                     rdfs:comment "nccpi v3 - all" ;
+                                                                                     rdfs:label "nccpi3all" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.niccdcd
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.niccdcd> rdf:type owl:NamedIndividual ,
+                                                                                            :SoilMapUnitObservableProperty ;
+                                                                                   rdfs:comment "non-irrigated capability class - dominant condition" ;
+                                                                                   rdfs:label "niccdcd" .
+
+
+###  http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.pondfreqprs
+<http://stko-kwg.geog.ucsb.edu/lod/resource/soilMapUnitObservableProperty.pondfreqprs> rdf:type owl:NamedIndividual ,
+                                                                                                :SoilMapUnitObservableProperty ;
+                                                                                       rdfs:comment "ponding frequency - presence" ;
+                                                                                       rdfs:label "pondfreqprs" .
+
+
 ###  http://stko-kwg.geog.ucsb.edu/lod/resource/special
 <http://stko-kwg.geog.ucsb.edu/lod/resource/special> rdf:type owl:NamedIndividual ,
                                                               :HospitalType ;
@@ -4725,19 +5368,37 @@ xsd:gYear rdf:type rdfs:Datatype .
                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Well-known Text Literal"@en .
 
 
-<http://www.w3.org/2006/time#hasBeginning> rdfs:comment "Beginning of a temporal entity"@en ;
-                                           rdfs:label "has beginning"@en ;
-                                           <http://www.w3.org/2004/02/skos/core#definition> "Beginning of a temporal entity."@en .
-
-
-<http://www.w3.org/2006/time#hasEnd> rdfs:comment "End of a temporal entity."@en ;
-                                     rdfs:label "has end"@en ;
-                                     <http://www.w3.org/2004/02/skos/core#definition> "End of a temporal entity."@en .
-
-
 #################################################################
 #    General axioms
 #################################################################
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/contributorRole> ;
+  owl:someValuesFrom <http://ld.iospress.nl/rdf/ontology/Role> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/geocodingOutput> ;
+  owl:someValuesFrom <http://ld.iospress.nl/rdf/ontology/GeoCodedLocation> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://purl.org/spar/c4o/hasGlobalCitationFrequency> ;
+  owl:someValuesFrom <http://purl.org/spar/c4o/GlobalCitationCount> ;
+  rdfs:subClassOf <http://purl.org/vocab/frbr/core/Endeavour>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://purl.org/spar/c4o/hasGlobalCountSource> ;
+  owl:someValuesFrom <http://purl.org/spar/c4o/BibliographicInformationSource> ;
+  rdfs:subClassOf <http://purl.org/spar/c4o/GlobalCitationCount>
+] .
+
 
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://qudt.org/1.1/schema/qudt#unit> ;
@@ -4761,9 +5422,23 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 [ rdf:type owl:Restriction ;
+  owl:onProperty :fallsUnderTopic ;
+  owl:someValuesFrom :ExpertiseTopic ;
+  rdfs:subClassOf :Hazard
+] .
+
+
+[ rdf:type owl:Restriction ;
   owl:onProperty :hasChiefJudge ;
   owl:someValuesFrom :ChiefJudge ;
   rdfs:subClassOf :JudegeInfo
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasContributor ;
+  owl:someValuesFrom <http://ld.iospress.nl/rdf/ontology/Contributor> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
 ] .
 
 
@@ -4782,9 +5457,30 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 [ rdf:type owl:Restriction ;
+  owl:onProperty :hasExpertise ;
+  owl:someValuesFrom :ExpertiseTopic ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
   owl:onProperty :hasFireCause ;
   owl:someValuesFrom :FireCause ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasGeometry ;
+  owl:someValuesFrom :GeometryCollection ;
+  rdfs:subClassOf :SoilMapUnit
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasGeometryMember ;
+  owl:someValuesFrom <http://www.opengis.net/ont/geosparql#Feature> ;
+  rdfs:subClassOf :GeometryCollection
 ] .
 
 
@@ -4799,6 +5495,13 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty :hasProgram ;
   owl:someValuesFrom :Program ;
   rdfs:subClassOf :Disaster
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasPublicationYear ;
+  owl:someValuesFrom <http://www.w3.org/2006/time#Instant> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
 ] .
 
 
@@ -4861,7 +5564,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty :hasTemporalScope ;
   owl:someValuesFrom <http://www.w3.org/2006/time#TemporalEntity> ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
 ] .
 
 
@@ -4918,6 +5621,13 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty :hospitalType ;
   owl:someValuesFrom :HospitalType ;
   rdfs:subClassOf :Hospital
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :locatedIn ;
+  owl:someValuesFrom :AdministrativeRegion_3 ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
 ] .
 
 
@@ -5083,7 +5793,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.opengis.net/ont/geosparql#hasDefaultGeometry> ;
   owl:someValuesFrom <http://www.opengis.net/ont/geosparql#Geometry> ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
 ] .
 
 
@@ -5154,6 +5864,13 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
   owl:someValuesFrom :Geometry ;
   rdfs:subClassOf :USClimateDivision
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+  owl:someValuesFrom <http://www.opengis.net/ont/geosparql#Geometry> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
 ] .
 
 
@@ -5279,7 +5996,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
   owl:someValuesFrom <http://www.opengis.net/ont/geosparql#Geometry> ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
 ] .
 
 
@@ -5341,6 +6058,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+  owl:someValuesFrom <http://www.opengis.net/ont/geosparql#Geometry> ;
+  rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
   owl:someValuesFrom <http://www.opengis.net/ont/sf#Point> ;
   rdfs:subClassOf :RoadSegmentNode
 ] .
@@ -5376,7 +6100,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
-  owl:someValuesFrom :NIFC_Fire ;
+  owl:someValuesFrom :NIFCFire ;
   rdfs:subClassOf :NIFCFireObservation
 ] .
 
@@ -5413,6 +6137,13 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
   owl:someValuesFrom :SmokePlumeSnapshot ;
   rdfs:subClassOf :SmokePlumeObservation
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+  owl:someValuesFrom :SoilMapUnit ;
+  rdfs:subClassOf :SoilMapUnitObservationCollection
 ] .
 
 
@@ -5518,6 +6249,20 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty <http://www.w3.org/ns/sosa/hasMember> ;
   owl:someValuesFrom :PublicHealthObservation ;
   rdfs:subClassOf :PublicHealthObservationCollection
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/hasMember> ;
+  owl:someValuesFrom :SoilMapUnitObservation ;
+  rdfs:subClassOf :SoilMapUnitObservationCollection
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/hasMember> ;
+  owl:someValuesFrom :SoilMapUnitOverlapObservation ;
+  rdfs:subClassOf :SoilMapUnitObservationCollection
 ] .
 
 
@@ -5670,6 +6415,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+  owl:someValuesFrom :SoilMapUnitObservableProperty ;
+  rdfs:subClassOf :SoilMapUnitObservation
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
   owl:someValuesFrom :StormTrackObservableProperty ;
   rdfs:subClassOf :StormTrackObservation
 ] .
@@ -5762,7 +6514,42 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.w3.org/ns/sosa/phenomenonTime> ;
   owl:someValuesFrom <http://www.w3.org/2006/time#TemporalEntity> ;
+  rdfs:subClassOf :PublicHealthObservationCollection
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/phenomenonTime> ;
+  owl:someValuesFrom <http://www.w3.org/2006/time#TemporalEntity> ;
   rdfs:subClassOf :SmokePlumeObservation
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/phenomenonTime> ;
+  owl:someValuesFrom <http://www.w3.org/2006/time#TemporalEntity> ;
+  rdfs:subClassOf :VulnerabilityIndexObservation
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/contributorAffiliation> ;
+  owl:allValuesFrom <http://ld.iospress.nl/rdf/ontology/Organization> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/contributorRole> ;
+  owl:allValuesFrom <http://ld.iospress.nl/rdf/ontology/Role> ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasFieldsOfStudy ;
+  owl:allValuesFrom :FieldsOfStudy ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
 ] .
 
 
@@ -5784,6 +6571,20 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty :hasMappingProgram ;
   owl:allValuesFrom :MappingProgram ;
   rdfs:subClassOf :MTBSFireObservationCollection
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasSubTopic ;
+  owl:allValuesFrom :ExpertiseTopic ;
+  rdfs:subClassOf :ExpertiseTopic
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasVenue ;
+  owl:allValuesFrom :Venue ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
 ] .
 
 
@@ -5839,6 +6640,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty :sfWithin ;
   owl:allValuesFrom :S2Cell ;
+  rdfs:subClassOf :AirQualitySite
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :sfWithin ;
+  owl:allValuesFrom :S2Cell ;
   rdfs:subClassOf :Hospital
 ] .
 
@@ -5874,7 +6682,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty :spatialRelation ;
   owl:allValuesFrom :AdministrativeRegion_3 ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
 ] .
 
 
@@ -5951,7 +6759,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty :spatialRelation ;
   owl:allValuesFrom :S2Cell ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
 ] .
 
 
@@ -6119,7 +6927,7 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty :hasIncidentName ;
   owl:someValuesFrom rdfs:Literal ;
-  rdfs:subClassOf :NIFC_Fire
+  rdfs:subClassOf :NIFCFire
 ] .
 
 
@@ -6127,6 +6935,13 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty :hasLength ;
   owl:someValuesFrom rdfs:Literal ;
   rdfs:subClassOf :RoadSegment
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasMapUnitAreaSymbol ;
+  owl:someValuesFrom rdfs:Literal ;
+  rdfs:subClassOf :SoilMapUnitObservationCollection
 ] .
 
 
@@ -6162,6 +6977,20 @@ xsd:gYear rdf:type rdfs:Datatype .
   owl:onProperty :hasRoadSign ;
   owl:someValuesFrom rdfs:Literal ;
   rdfs:subClassOf :RoadSegment
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasSoilMapUnitKey ;
+  owl:someValuesFrom rdfs:Literal ;
+  rdfs:subClassOf :SoilMapUnitObservationCollection
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasSoilMapUnitSymbol ;
+  owl:someValuesFrom rdfs:Literal ;
+  rdfs:subClassOf :SoilMapUnitObservationCollection
 ] .
 
 
@@ -6329,6 +7158,13 @@ xsd:gYear rdf:type rdfs:Datatype .
 [ rdf:type owl:Restriction ;
   owl:onProperty <http://www.w3.org/ns/sosa/hasSimpleResult> ;
   owl:someValuesFrom rdfs:Literal ;
+  rdfs:subClassOf :SoilMapUnitObservation
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://www.w3.org/ns/sosa/hasSimpleResult> ;
+  owl:someValuesFrom rdfs:Literal ;
   rdfs:subClassOf :StormTrackObservation
 ] .
 
@@ -6369,16 +7205,100 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 [ rdf:type owl:Restriction ;
-  owl:onProperty <http://www.w3.org/ns/sosa/resultTime> ;
-  owl:someValuesFrom xsd:dateTime ;
-  rdfs:subClassOf :PublicHealthObservationCollection
+  owl:onProperty <http://ld.iospress.nl/rdf/geocode/city> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/GeoCodedLocation>
 ] .
 
 
 [ rdf:type owl:Restriction ;
-  owl:onProperty <http://www.w3.org/ns/sosa/resultTime> ;
-  owl:someValuesFrom xsd:dateTime ;
-  rdfs:subClassOf :VulnerabilityIndexObservation
+  owl:onProperty <http://ld.iospress.nl/rdf/geocode/country> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/GeoCodedLocation>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/geocode/postalCode> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/GeoCodedLocation>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/geocode/region> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/GeoCodedLocation>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/geocode/zone> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/GeoCodedLocation>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/contributorFullName> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/geocodingInput> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/organizationCountry> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/organizationName> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/organizationPlace> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Organization>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/publicationAbstract> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://ld.iospress.nl/rdf/ontology/publicationTitle> ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://purl.org/spar/c4o/hasGlobalCountDate> ;
+  owl:allValuesFrom xsd:date ;
+  rdfs:subClassOf <http://purl.org/spar/c4o/GlobalCitationCount>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty <http://purl.org/spar/c4o/hasGlobalCountValue> ;
+  owl:allValuesFrom xsd:nonNegativeInteger ;
+  rdfs:subClassOf <http://purl.org/spar/c4o/GlobalCitationCount>
 ] .
 
 
@@ -6397,9 +7317,58 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 
 [ rdf:type owl:Restriction ;
+  owl:onProperty :hasAlias ;
+  owl:allValuesFrom rdfs:Literal ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasDBLPID ;
+  owl:allValuesFrom rdfs:Literal ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
   owl:onProperty :hasFireName ;
   owl:allValuesFrom rdfs:Literal ;
   rdfs:subClassOf :MTBSFire
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasHomepage ;
+  owl:allValuesFrom rdfs:Literal ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasORCID ;
+  owl:allValuesFrom rdfs:Literal ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasUri ;
+  owl:allValuesFrom xsd:anyURI ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Article>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasUri ;
+  owl:allValuesFrom xsd:anyURI ;
+  rdfs:subClassOf <http://ld.iospress.nl/rdf/ontology/Contributor>
+] .
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :hasVenueName ;
+  owl:allValuesFrom xsd:string ;
+  rdfs:subClassOf :Venue
 ] .
 
 
