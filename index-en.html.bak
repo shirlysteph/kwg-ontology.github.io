@@ -3568,7 +3568,6 @@ This ontology has the following classes and properties.</span>
 <span class="markdown">
 The spatio-temporal modeling schema adopted in KWG is shown in Figure 2, while Figure 3 is the schema diagram for all hazard-related datasets included in the 
 grpah. The Schema for the entire graph can be found in the link provided just below.</span>
-
 <b>Integrated Schema Diagram:</b> <a href="figures/integrated-schema-diagram.png" target="_blank">Classes and properties used in the KnowWhereGraph project. Click to open the schema diagram in another tab.</a>
 
 <figure>
